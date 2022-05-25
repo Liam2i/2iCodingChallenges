@@ -19,12 +19,10 @@ public class App {
         driverClues.get("https://www.wordplays.com/crossword-solver/");
         
 
+        // Set up
         WebElement cookies1 = driverCrossword.findElement (By.xpath ("//*[contains(text(),'Accept All Cookies')]"));
-        
         cookies1.click();
-        
-        
-        // Get 1st clue
+    
         WebElement playnow = driverCrossword.findElement(By.xpath ("//*[contains(text(),'Play Now')]"));
         playnow.click();
 
@@ -35,10 +33,10 @@ public class App {
         WebElement difficulty = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("regular")));
         difficulty.click();
 
-        
+
+
         // Get all across clues
         List<WebElement> acrossClues = driverCrossword.findElement(By.id("across_clues")).findElements(By.xpath("./*"));
-        
         
         for (WebElement clue : acrossClues) {
             String clueText = clue.findElement(By.xpath(".//span")).getText();
