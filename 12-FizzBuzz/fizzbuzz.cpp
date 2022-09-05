@@ -25,9 +25,9 @@ list<string> fizzbuzzThread(int start, int end) {
 }
 
 int main() {
-	vector<future<list<string>>> threads(10);
+	vector<future<list<string>>> threads(100);
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 100; i++) {
 		int start = (i * 100) + 1;
 		int end = (i + 1) * 100;
         threads[i] = async(fizzbuzzThread, start, end);
@@ -42,12 +42,6 @@ int main() {
 			cout << s;
 		}
     }
-
-	//auto a = async(fizzbuzzThread, start, end);
-
-	// for(string s : values) {
-	// 	cout << s;
-	// }
 
 	cout << "\nDone";
 	
